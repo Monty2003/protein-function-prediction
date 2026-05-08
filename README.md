@@ -59,7 +59,21 @@ The research investigates:
 - Increasing ESM training samples improved model generalization.
 - CNN performance improved considerably with higher epochs.
 - Hybrid CNN + ESM architecture did not outperform standalone ESM + SVC.
-- Results suggest that pretrained transformer embeddings capture protein semantics more effectively than raw sequence CNN learning alone.   
+- Results suggest that pretrained transformer embeddings capture protein semantics more effectively than raw sequence CNN learning alone.
+
+## CNN Epoch Analysis
+ We analyzed the effect of training epochs on 1D CNN accuracy using a dataset size of 15,000 protein sequences.
+ 
+| Epochs | Accuracy |
+|--------|----------|
+| 5      | 0.89     |
+| 10     | 0.91     |
+| 15     | 0.90     |
+
+Observation:
+- Accuracy improved until 10 epochs.
+- After 10 epochs, performance saturated.
+- 10 epochs provided the best balance between learning and overfitting.
 
 ## Tech Stack
  ### Programming & Environment
