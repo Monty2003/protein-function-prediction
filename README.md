@@ -11,12 +11,16 @@ The research investigates:
 - 1D CNN sequence learning
 - Hybrid CNN + ESM architectures
 - Comparative performance analysis
+# Protein Function Prediction using ML & ESM
+
+## Overview
+This project predicts protein function (enzyme, binding, transport) from amino acid sequences using machine learning and deep learning embeddings.
 
 ## Features
 - Protein sequence preprocessing (FASTA → CSV)
 - k-mer based feature engineering
 - TF-IDF vectorization
-- Multiple ML models (LR, RF, SVM)
+- Multiple ML models (Logistic Regression, Random Forest, SVM)
 - ESM pretrained embeddings (transformers)
 - Model comparison and performance scaling
 - Final accuracy: ~94%
@@ -25,19 +29,25 @@ The research investigates:
 - Swiss-Prot (Reviewed dataset from UniProt)
 - Balanced dataset created from raw sequences
 
-## Models Used
- ### Classical ML
-   - Logistic Regression
-   - Random Forest
-   - Support Vector Machine (SVM)
 
- ### Advanced Model
-   - ESM embeddings + SVC (Best)
+ ### Models Used
 
- ### Deep Learning Models
-   - 1D CNN (Raw Protein Sequence)
-   - Hybrid CNN + ESM + SVC
+### Classical Machine Learning
+- Logistic Regression
+- Random Forest
+- Support Vector Machine (SVM)
 
+### Deep Learning Models
+- 1D Convolutional Neural Network (1D CNN)
+- Hybrid CNN + ESM Model
+- ESM + Self-Attention Neural Network
+
+### Advanced Techniques
+- 5-Fold Cross-Validation
+- Ensemble Learning (ESM + SVC + Self-Attention)
+- Homology-Based Label Diffusion
+
+ 
  ## Results
    | Model                        | Dataset Size | Accuracy |
    | ---------------------------- | ------------ | -------- |
@@ -51,6 +61,15 @@ The research investigates:
    | 1D CNN (5 Epochs)            | 21000        | 86%      |
    | 1D CNN (15 Epochs)           | 15000        | 91%      |
    | Hybrid CNN + ESM + SVC       | 15000        | 90%      |
+   | ESM + Self-Attention                        | 93.97%   |
+   | Ensemble (SVC + Self-Attention)             | 94.57%   |
+   | Homology-Based Label Diffusion              | 94.20%   |
+
+### Cross-Validation Results
+
+- ESM + SVC (5-Fold CV): **93.68% ± 0.39%**
+- ESM + Self-Attention (5-Fold CV): **93.59% ± 0.75%**
+
 
 
 ## Research Findings
@@ -60,6 +79,10 @@ The research investigates:
 - CNN performance improved considerably with higher epochs.
 - Hybrid CNN + ESM architecture did not outperform standalone ESM + SVC.
 - Results suggest that pretrained transformer embeddings capture protein semantics more effectively than raw sequence CNN learning alone.
+- Self-attention successfully captured relationships among embedding dimensions.
+- Ensemble learning achieved the highest overall accuracy.
+- Homology-based label diffusion was implemented and evaluated but did not outperform the ensemble baseline.
+- The final ensemble model is the strongest candidate for deployment and publication.
 
 ## CNN Epoch Analysis
  We analyzed the effect of training epochs on 1D CNN accuracy using a dataset size of 15,000 protein sequences.
@@ -74,6 +97,12 @@ Observation:
 - Accuracy improved until 10 epochs.
 - After 10 epochs, performance saturated.
 - 10 epochs provided the best balance between learning and overfitting.
+## Results
+
+| Model | Accuracy |
+|------|--------|
+| TF-IDF + SVM | 91% |
+| ESM + SVC (15000 samples) | 94% |
 
 ## Tech Stack
  ### Programming & Environment
@@ -128,5 +157,21 @@ Observation:
 - Protein family-level prediction
 - Structure-aware embeddings
 
+## Methodology
+
+1. Convert FASTA protein sequences into structured CSV data.
+2. Generate protein embeddings using the ESM2 transformer model.
+3. Train classical machine learning and deep learning models.
+4. Perform 5-fold cross-validation to verify model robustness.
+5. Build an ESM + Self-Attention neural network.
+6. Combine ESM + SVC and Self-Attention models using ensemble learning.
+7. Apply homology-based label diffusion as a biologically inspired post-processing step.
+8. Compare all models using accuracy, F1-score, confusion matrices, and classification reports.
+
 # protein-function-prediction
 >>>>>>> 32c297ff1df91bdac12205c68502053a52438873
+
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Monty2003/protein-function-prediction.git
