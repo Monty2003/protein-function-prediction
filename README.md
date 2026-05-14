@@ -61,9 +61,9 @@ This project predicts protein function (enzyme, binding, transport) from amino a
    | 1D CNN (5 Epochs)            | 21000        | 86%      |
    | 1D CNN (15 Epochs)           | 15000        | 91%      |
    | Hybrid CNN + ESM + SVC       | 15000        | 90%      |
-   | ESM + Self-Attention                        | 93.97%   |
-   | Ensemble (SVC + Self-Attention)             | 94.57%   |
-   | Homology-Based Label Diffusion              | 94.20%   |
+   | ESM + Self-Attention         | 15000        | 93.97%   |
+   | Ensemble (SVC + Self-Attention)|15000       | 94.57%   |
+   | Homology-Based Label Diffusion |15000       | 94.20%   |
 
 ### Cross-Validation Results
 
